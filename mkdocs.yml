@@ -1,0 +1,89 @@
+site_name: Advanced Configurations
+site_description: Advanced configurations for containers
+site_url: https://virtualize.link
+edit_uri: ""
+repo_url: https://github.com/quietsy/advanced-configurations
+theme:
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - search.suggest
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.highlight
+  name: material
+  custom_dir: overrides
+  favicon: images/logo.png
+  logo: images/logo.png
+  font:
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+  font:
+    text: Roboto
+    code: Roboto Mono
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - mdx_truly_sane_lists
+plugins:
+  - git-revision-date-localized:
+      type: timeago
+      fallback_to_build_date: true
+      enable_creation_date: true
+      enabled: true
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/solid/rss 
+      link: /feed_rss_created.xml
+  homepage: https://virtualize.link
+nav:
+  - Home: index.md
+  - Containers:
+    - Awesome LSIO: awesome-lsio.md
+    - Consolidating Proxies: consolidate.md
+    - DNS for Containers: container-dns.md
+    - Optimizing Nextcloud: nextcloud.md
+    - Piped: piped.md
+    - Searx: searx.md
+    - Securing SWAG: secure.md
+    - Simplelogin: simplelogin.md
+    - SOCKS Proxy: socks.md
+    - VPN Hub: hub.md
+    - VPN Route: vpn.md
+    - VPS Proxy: vps.md
+    - YAML Anchors: yaml-anchors.md
+  - Network:
+    - Asus VLANs: asus-vlans.md
+    - OPN-Arp: opnarp.md
+    - Hardcoded DNS: hardcoded-dns.md
+    - Split DNS: split-dns.md
+    - Split Tunnel: split.md
+    - Firehol: firehol.md
+    - Geoblock: geoblock.md
+  - Other:
+    - Setup Template: setup.md
+    - Phone: phone.md
+    - Atuin: atuin.md
+    - Brave: brave.md
+    - Tmux: tmux.md
+    - Smartd: smartd.md
+    - ZFS: zfs.md

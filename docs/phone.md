@@ -1,0 +1,293 @@
+# Periodic Phone Wipe Notes
+
+I got into the habit of wiping my phone every 6 months (takes about an hour) in order to:
+
+- Streamline the process
+- Validate the backups
+- Re-examine which apps should stay
+- Remove leftover data
+- Figure out the pains and find alternatives
+
+My phone is a Pixel 8 with [GrapheneOS](https://grapheneos.org/), it has an [always-on VPN](/hub/), and a lot of self-hosting related apps.
+
+## Backup
+
+- Snapshot
+  - Homepages
+  - Toggles
+  - App drawer
+- Export
+  - Wireguard
+  - Gadgetbridge
+  - Lawnchair
+  - Ntfy
+  - Termux
+- Backup the entire phone to the PC
+
+## Install
+
+- Follow the [official documentation](https://grapheneos.org/install/cli).
+
+## Configuration
+
+- Copy exports and snapshots back
+- Initial configuration
+  - Network & Internet
+    - Private DNS: quietsy.dns.domain.tld
+    - Internet connectivity checks: off
+    - Internet
+      - Network preferences
+        - Turn on wi-fi automatically: off
+        - Notify for public networks: off
+    - SIMs
+      - VoLTE: off
+      - Preferred network type: LTE
+      - Allow 2G: off
+    - VPN
+      - Always-on VPN: on
+      - Block connections without VPN: off
+  - Connected devices
+    - Connection preferences
+      - NFC: off
+      - Printing: off
+  - Apps
+    - Sandboxed Google Play
+      - Reroute location requests to the OS: on
+      - Google location accuracy: off
+    - Special app access
+      - Special access to hardware accelerators for Google apps: on
+      - Unrestricted mobile data: Linphone, FindMyDevice
+  - Notifications
+    - Wireless emergency alerts: off
+    - Hide silent notifications in status bar: on
+    - Notification dot on app icon: on
+    - Enhanced notifications: on
+    - Notifications on lock screen: off
+    - Bubbles: on
+  - Sound & vibration
+    - Spatial audio: off
+    - Vibration & haptics: on
+    - Dial pad tones: off
+    - Screen locking sound: off
+    - Charging sounds and vibrations: off
+    - Tap & click sounds: off
+    - Always show icon when in vibrate mode: on
+    - Set ringtone and notification sound
+  - Display
+    - Adaptive brightness: on
+    - Lock screen
+      - Privacy: don't show notifications at all
+      - Shortcuts
+        - Flashlight
+        - Camera
+      - Dynamic clock: on
+      - Always show time and info: off
+      - Tap to check phone: on
+      - Lift to check phone: off
+      - Wake screen for notifications: on
+    - Screen timeout: 1 minute
+    - Dark theme: on
+    - Night light: off
+    - Auto-rotate screen: off
+    - Smooth display: off
+    - Increase touch sensitivity: off
+    - Screen saver: off
+  - Wallpaper & style
+    - Set wallpaper
+    - Show notifications on the lock screen: off
+  - Battery
+    - Battery saver: off
+    - Charging optimization: limit to 80%
+    - Battery percentage: on
+    - Battery share: off
+  - System
+    - Keyboard
+      - Futo
+        - Keyboard & Typing
+          - Show number row: on
+          - Show action/suggestions bar: on
+          - Automatic spaces mode: automatically insert spaces only after inserting suggestions
+          - Swipe typing: on
+          - Auto-correction: on
+          - Auto-capitalization: on
+          - Double-space period: on
+          - Sound on keypress: off
+          - Popup on keypress: on
+          - Vibrate on keypress: on
+          - Vibration: minimum
+          - Clipboard history: on
+    - Gestures
+      - Quickly open camera: on
+      - Navigation mode: gesture navigation
+      - Tap to check phone: on
+      - Lift to check phone: off
+    - Date & time
+      - Use 24-hour format: on
+    - System updates
+      - Require battery above warning: on
+      - Require device to be charging: off
+      - Automatic reboot: on
+    - Developer options
+      - OEM unlocking: off
+      - USB debugging: off
+      - Wireless debugging: off
+      - Mobile data always active: off
+      - Disable bluetooth LE audio hardware offload: on
+  - Security & privacy
+    - Security
+      - Screen lock
+        - Scramble PIN input layout: on
+        - Enhanced PIN privacy: on
+        - Lock after screen timeout: 5 seconds
+        - Power button instantly locks: on
+        - Allow camera access when locked: on
+      - Fingerprint unlock
+        - Add both hands
+        - Use for screen unlocking: on
+    - Privacy
+      - Camera access: on
+      - Microphone access: on
+      - Show clipboard access: on
+      - Show passwords: off
+      - Allow sensors permission to apps by default: off
+      - Save screenshot timestamp to EXIF: off
+      - Notifications on lock screen: all
+      - Show media on lock screen: on
+    - Exploit protection
+      - Auto reboot: 18 hours
+      - USB-C port: charging-only when locked, except before first unlock
+      - Hardened memory allocator: disable camera
+      - Memory tagging: check
+      - Native code debugging: check, disable protonmail
+      - Webview JIT: check, disable PDF viewer
+      - DCL via memory: check, allow google play services, vanadium
+      - DCL via storage: off
+      - Secure app spawning: on
+    - More privacy & security
+      - Allow sensors permission to apps by default: off
+      - Notify about system process crashes: on
+      - Automatic exploit protection compatibility mode: on
+  - Location
+    - Location services
+      - Wi-fi scanning: off
+      - Bluetooth scanning: off
+  - Safety & emergency
+    - Wireless emergency alerts: off
+
+## Apps
+
+App store priority for installation: google play store > obtainium (github) > obtainium (f-droid)
+
+- Audiobookshelf
+  - Permissions: network
+  - Background usage: optimized
+- Auditor
+  - Enable remote verification: on
+  - Permissions: network, notifications
+  - Background usage: unrestricted
+- Bitwarden (password manager)
+  - Permissions: network, notifications
+  - Background usage: optimized
+- Breezy weather
+  - Permissions: network, notifications, sensors
+  - Background usage: unrestricted
+- Davx5 (sync contacts)
+  - Permissions: calendar, contacts, network, notifications
+  - Background usage: unrestricted
+- Discord
+  - Permissions: network, notifications
+  - Background usage: optimized
+- Finamp (music)
+  - Permissions: network
+  - Background usage: optimized
+- Findmydevice
+  - Permissions: camera, contacts, location, network, notifications, phone, sensors
+  - Background usage: unrestricted
+- Floccus (bookmark sync)
+  - Permissions: network
+  - Background usage: off
+- FUTO keyboard
+  - Permissions: microphone
+  - Background usage: optimized
+- Gadgetbridge (cloudless gadgets)
+  - Permissions: calendar, call logs, contacts, location, nearby devices, network, notifications, phone, sensors, sms
+  - Background usage: unrestricted
+- Google Play Services (sandboxed)
+  - Permissions: network
+  - Background usage: unrestricted
+- Google Play Store (sandboxed)
+  - Permissions: network, notifications
+  - Background usage: optimized
+- Google Services Framework (sandboxed)
+  - Permissions: network
+  - Background usage: optimized
+- Immich (photos)
+  - Permissions: network
+  - Background usage: optimized
+- Jellyfin (media)
+  - Permissions: network
+  - Background usage: unrestricted
+- Lawnchair (launcher)
+  - Permissions: nearby devices
+  - Background usage: optimized
+- LibreTube (youtube)
+  - Permissions: network
+  - Background usage: unrestricted
+- Linphone (voip)
+  - Permissions: contacts, microphone, network, notifications, phone, sensors
+  - Background usage: unrestricted
+- Nextcloud news (rss reader)
+  - Permissions: network
+  - Background usage: none
+- Nextcloud (self-hosted cloud)
+  - Permissions: network, notifications
+  - Background usage: unrestricted
+- Nextcloud notes
+  - Permissions: network
+  - Background usage: none
+- Ntfy (notifications)
+  - Permissions: network, notifications
+  - Background usage: unrestricted
+- Obtainium
+  - Permissions: network, notifications
+  - Background usage: optimized
+- Organic maps (navigation)
+  - Permissions: location, network, sensors
+  - Background usage: none
+- OSS document scanner
+  - Permissions: none
+  - Background usage: optimized
+- Pixel Camera
+  - Permissions: camera, microphone, notifications, photos and videos (storage scope /DCIM/), sensors
+  - Background usage: optimized
+- Proton calendar
+  - Permissions: network, notifications
+  - Background usage: optimized
+- Proton mail
+  - Permissions: network, notifications
+  - Background usage: optimized
+- Signal
+  - Permissions: contacts, network, notifications, phone, sensors
+  - Background usage: optimized
+- SimpleLogin
+  - Permissions: network
+  - Background usage: none
+- Termux
+  - Permissions: files (storage scope /backup/), network, notifications
+  - Background usage: optimized
+- Vanadium (browser)
+  - Permissions: network, notifications
+  - Background usage: optimized
+- VLC
+  - Permissions: network
+  - Background usage: optimized
+- Wireguard (vpn)
+  - Permissions: network
+  - Background usage: optimized
+- Configure all apps
+- Set folders to auto upload to [nextcloud](/nextcloud/)
+  - Photos
+  - Videos
+  - Call recordings
+  - Snapshots
+  - Backup
